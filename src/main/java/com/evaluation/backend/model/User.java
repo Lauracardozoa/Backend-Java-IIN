@@ -146,7 +146,7 @@ public class User {
         this.educationLevel = educationLevel;
     }
 
-    public Set getCourses() {
+    public Set<Course> getCourses() {
         return courses;
     }
 
