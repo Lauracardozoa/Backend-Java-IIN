@@ -14,10 +14,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "fullName")
+    @Column(name = "fullname")
     private String fullName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @ColumnTransformer(forColumn = "password", read = "pgp_sym_decrypt(age, 'password')", write = "pgp_sym_encrypt(?, 'password')")
@@ -36,13 +36,13 @@ public class User {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "phoneNumber")
+    @Column(name = "phonenumber")
     private String phoneNumber;
 
-    @Column(name = "preferredLanguage")
+    @Column(name = "preferredlanguage")
     private String preferredLanguage;
 
-    @Column(name = "educationLevel")
+    @Column(name = "educationlevel")
     private String educationLevel;
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -51,8 +51,8 @@ public class User {
                     CascadeType.MERGE
             })
     @JoinTable(name = "users_courses",
-            joinColumns = {@JoinColumn(name = "userId", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "courseId", referencedColumnName = "id")})
+            joinColumns = {@JoinColumn(name = "userid", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "courseid", referencedColumnName = "id")})
     private Set<Course> courses = new HashSet<>();
 
     public User() {

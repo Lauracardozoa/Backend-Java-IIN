@@ -23,7 +23,7 @@ public class Course {
     @Column(name="rating")
     private Float rating;
 
-    @Column(name="nReviews")
+    @Column(name="nreviews")
     private Integer nReviews;
 
     @Column(name="duration")
