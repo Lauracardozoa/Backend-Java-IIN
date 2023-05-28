@@ -35,7 +35,7 @@ public class Course {
                     CascadeType.MERGE
             }, mappedBy = "courses")
     @JsonIgnore
-    private Set<User> posts = new HashSet<>();
+    private Set<User> users = new HashSet<>();
 
     public Course() {
     }
@@ -88,11 +88,11 @@ public class Course {
         this.duration = duration;
     }
 
-    public Set<User> getPosts() {
-        return posts;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setPosts(Set<User> posts) {
-        this.posts = posts;
+    public void setUsers(Set<User> posts) {
+        this.users = posts;
     }
 }

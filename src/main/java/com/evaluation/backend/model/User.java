@@ -153,4 +153,9 @@ public class User {
     public void setCourses(Set courses) {
         this.courses = courses;
     }
+
+    public void addCourse(Course course) {
+        this.courses.add(course);
+        course.getUsers().add(this);
+    }
 }
