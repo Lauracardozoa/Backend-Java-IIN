@@ -20,7 +20,7 @@ public class User {
     @Column(name = "email", unique = true)
     private String email;
 
-    @ColumnTransformer(forColumn = "password", read = "pgp_sym_decrypt(age, 'password')", write = "pgp_sym_encrypt(?, 'password')")
+    @ColumnTransformer(forColumn = "password", read = "pgp_sym_decrypt(password::bytea, 'AES_KEY')", write = "pgp_sym_encrypt(?, 'AES_KEY')")
     @Column(name = "password", columnDefinition = "text")
     private String password;
 
