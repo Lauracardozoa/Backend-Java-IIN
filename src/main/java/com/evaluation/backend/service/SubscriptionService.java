@@ -57,4 +57,34 @@ public class SubscriptionService {
         return response;
     }
 
+    public ResponseEntity<ResponseDTO> unsubscribe(SubscribeRequestDTO request){
+        ResponseEntity<ResponseDTO> response;
+        Integer userId = request.getUserId();
+        Integer courseId = request.getCourseId();
+        try {
+            Optional<User> optionalUser = userRepository.findById(userId);
+            if(optionalUser.isPresent()){
+                Optional<Course> optionalCourse = courseRepository.findById(courseId);
+                if(optionalCourse.isPresent()){
+                    User user = optionalUser.get();
+                    Course course = optionalCourse.get();
+                    user.removeCourse(course);
+                    userRepository.save(user);
+                    response = new ResponseEntity<>(new ResponseDTO("User unsubscribe to course"), HttpStatus.OK);
+                    logger.info("Unsubscribe user with id " + userId + " to course " + courseId);
+                }
+                else{
+                    throw new Exception("Course do not exist");
+                }
+            }
+            else{
+                throw new Exception("User do not exist");
+            }
+        }catch (Exception e){
+            response = new ResponseEntity<>(new ResponseDTO("Failed to unsubscribe user to course"), HttpStatus.INTERNAL_SERVER_ERROR);
+            logger.error("Failed to subscribe user to course "+ e.getMessage());
+        }
+        return response;
+    }
+
 }

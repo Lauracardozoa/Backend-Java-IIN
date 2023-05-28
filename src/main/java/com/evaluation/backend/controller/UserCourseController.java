@@ -16,7 +16,12 @@ public class UserCourseController {
     }
 
     @PostMapping("/suscribe")
-    ResponseEntity<ResponseDTO> suscribe(@RequestBody SubscribeRequestDTO subscribeRequestDTO){
+    ResponseEntity<ResponseDTO> subscribe(@RequestBody SubscribeRequestDTO subscribeRequestDTO){
         return subscriptionService.subscribe(subscribeRequestDTO);
+    }
+
+    @PostMapping("/unsubscribe")
+    ResponseEntity<ResponseDTO> unsubscribe(@RequestBody SubscribeRequestDTO subscribeRequestDTO){
+        return subscriptionService.unsubscribe(subscribeRequestDTO);
     }
 }

@@ -158,4 +158,9 @@ public class User {
         this.courses.add(course);
         course.getUsers().add(this);
     }
+
+    public void removeCourse(Course course) {
+        this.courses.remove(course);
+        course.getUsers().remove(this);
+    }
 }
