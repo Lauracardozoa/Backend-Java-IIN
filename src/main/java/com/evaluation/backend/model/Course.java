@@ -36,4 +36,63 @@ public class Course {
             }, mappedBy = "courses")
     @JsonIgnore
     private Set<User> posts = new HashSet<>();
+
+    public Course() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
+
+    public Integer getnReviews() {
+        return nReviews;
+    }
+
+    public void setnReviews(Integer nReviews) {
+        this.nReviews = nReviews;
+    }
+
+    public LocalTime getDuration() {
+        return duration;
+    }
+
+    public void setDuration(LocalTime duration) {
+        this.duration = duration;
+    }
+
+    public Set<User> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<User> posts) {
+        this.posts = posts;
+    }
 }
