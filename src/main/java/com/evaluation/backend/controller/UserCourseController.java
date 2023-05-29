@@ -15,11 +15,17 @@ public class UserCourseController {
         this.subscriptionService = subscriptionService;
     }
 
+    /*
+     Subscribe a user on a course based in its ids
+    */
     @PostMapping("/suscribe")
     ResponseEntity<ResponseDTO> subscribe(@RequestBody SubscribeRequestDTO subscribeRequestDTO){
         return subscriptionService.subscribe(subscribeRequestDTO);
     }
 
+    /*
+     Unsubscribe a user on a course based in its ids
+    */
     @PostMapping("/unsubscribe")
     ResponseEntity<ResponseDTO> unsubscribe(@RequestBody SubscribeRequestDTO subscribeRequestDTO){
         return subscriptionService.unsubscribe(subscribeRequestDTO);

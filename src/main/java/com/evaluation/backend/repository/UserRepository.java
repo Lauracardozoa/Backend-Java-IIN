@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
 
+    // Method used for authentication on login
     Optional<User>findByEmailAndPassword(String email, String password);
 }

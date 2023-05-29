@@ -24,6 +24,7 @@ public class UserController {
 
     private GetCoursesFromUserService getCoursesFromUserService;
 
+
     public UserController(RegisterService registerService, LoginService loginService, UpdateUserService updateUserService, GetCoursesFromUserService getCoursesFromUserService) {
         this.registerService = registerService;
         this.loginService = loginService;
@@ -31,21 +32,33 @@ public class UserController {
         this.getCoursesFromUserService = getCoursesFromUserService;
     }
 
+    /*
+    Register a new user and save it in the database
+     */
     @PostMapping("/register")
     ResponseEntity<RegisterResponseDTO> registerNewUser(@RequestBody RegisterDTO newRegister){
         return registerService.registerNewUser(newRegister);
     }
 
+    /*
+    Login a new user return the id and email of the logged user or an error message if the credentials are bad
+     */
     @PostMapping("/login")
     ResponseEntity<LoginResponseDTO> login(@RequestBody LoginDTO loginDto){
         return loginService.login(loginDto);
     }
 
+    /*
+    Update user info based on the id, not can update email or password
+     */
     @PutMapping("/update/{id}")
     ResponseEntity<UpdateResponseDTO> update(@PathVariable Integer id, @RequestBody User updateUser){
         return updateUserService.update(id, updateUser);
     }
 
+    /*
+     Get all subscribed courses for a user based on his/her id
+    */
     @GetMapping("/{id}/courses")
     List<CourseDTO> getCourses(@PathVariable Integer id){
         return getCoursesFromUserService.getCoursesFromUser(id);

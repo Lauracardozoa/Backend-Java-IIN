@@ -20,6 +20,9 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
+    /*
+     Get all courses from database and convert them into CourseDTO
+    */
     public List<CourseDTO> getAllCourses(){
         List<CourseDTO> courses = new ArrayList<>();
         courseRepository.findAll()

@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+     DTO used for basic info for register a user
+*/
 public class RegisterDTO {
     private String fullName;
     private String email;

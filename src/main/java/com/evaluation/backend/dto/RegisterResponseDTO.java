@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+     DTO used for response with full name and email when the register is successful or a failure message otherwise
+*/
 public class RegisterResponseDTO extends ResponseDTO{
     private String fullName;
 

@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+     DTO used for send messages in the responses
+*/
 public class ResponseDTO {
     private String message;
 

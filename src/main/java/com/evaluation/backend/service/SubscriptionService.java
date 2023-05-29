@@ -27,18 +27,23 @@ public class SubscriptionService {
         this.courseRepository = courseRepository;
     }
 
+    /*
+     1. Check if a user with the given userId and a course with the given courseId exists in the database
+     2. If not return an error message
+     3. If them exist then return a success message
+    */
     public ResponseEntity<ResponseDTO> subscribe(SubscribeRequestDTO request){
         ResponseEntity<ResponseDTO> response;
         Integer userId = request.getUserId();
         Integer courseId = request.getCourseId();
         try {
             Optional<User> optionalUser = userRepository.findById(userId);
-            if(optionalUser.isPresent()){
+            if(optionalUser.isPresent()){ // If user with userId exists
                 Optional<Course> optionalCourse = courseRepository.findById(courseId);
-                if(optionalCourse.isPresent()){
+                if(optionalCourse.isPresent()){ // If course with courseId exists
                     User user = optionalUser.get();
                     Course course = optionalCourse.get();
-                    user.addCourse(course);
+                    user.addCourse(course); // add the course
                     userRepository.save(user);
                     response = new ResponseEntity<>(new ResponseDTO("User subscribe to course"), HttpStatus.OK);
                     logger.info("Subscribe user with id " + userId + " to course " + courseId);
@@ -57,18 +62,23 @@ public class SubscriptionService {
         return response;
     }
 
+    /*
+     1. Check if a user with the given userId and a course with the given courseId exists in the database
+     2. If not return an error message
+     3. If them exist then return a success message
+    */
     public ResponseEntity<ResponseDTO> unsubscribe(SubscribeRequestDTO request){
         ResponseEntity<ResponseDTO> response;
         Integer userId = request.getUserId();
         Integer courseId = request.getCourseId();
         try {
             Optional<User> optionalUser = userRepository.findById(userId);
-            if(optionalUser.isPresent()){
+            if(optionalUser.isPresent()){ // If user with userId exists
                 Optional<Course> optionalCourse = courseRepository.findById(courseId);
-                if(optionalCourse.isPresent()){
+                if(optionalCourse.isPresent()){ // If course with courseId exists
                     User user = optionalUser.get();
                     Course course = optionalCourse.get();
-                    user.removeCourse(course);
+                    user.removeCourse(course); // remove the course
                     userRepository.save(user);
                     response = new ResponseEntity<>(new ResponseDTO("User unsubscribe to course"), HttpStatus.OK);
                     logger.info("Unsubscribe user with id " + userId + " to course " + courseId);

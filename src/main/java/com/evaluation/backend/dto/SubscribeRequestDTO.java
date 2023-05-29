@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+     DTO used for in a subscribe/unsubscribe request having the courseId and userId fields
+*/
 public class SubscribeRequestDTO {
     private Integer courseId;
 

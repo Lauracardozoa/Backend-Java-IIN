@@ -21,12 +21,17 @@ public class UpdateUserService {
         this.userRepository = userRepository;
     }
 
+    /*
+    Update info for a user, not update password, email, name or country set on the registration endpoint
+    Return an error message if the id is invalid
+     */
     public ResponseEntity<UpdateResponseDTO> update(Integer id, User updateUser) {
         ResponseEntity<UpdateResponseDTO> response;
         try{
             Optional<User> optionalUser = userRepository.findById(id);
             if(optionalUser.isPresent()) {
                 User user = optionalUser.get();
+                // Update only birthday, gender, address, phone number, preferred language and education level
                 user.setBirthday(updateUser.getBirthday());
                 user.setGender(updateUser.getGender());
                 user.setAddress(updateUser.getAddress());

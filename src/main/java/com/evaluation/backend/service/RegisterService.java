@@ -20,6 +20,10 @@ public class RegisterService {
         this.userRepository = userRepository;
     }
 
+    /*
+     Register and new user and save it in the database, it checks if the email is not duplicate if its the case return
+     an error message
+    */
     public ResponseEntity<RegisterResponseDTO> registerNewUser(RegisterDTO newRegister) {
         User user = new User();
         RegisterResponseDTO registerResponseDTO;

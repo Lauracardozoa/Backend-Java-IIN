@@ -5,6 +5,9 @@ import com.evaluation.backend.service.CourseService;
 
 import java.time.LocalTime;
 
+/*
+     DTO used for show courses on the responses
+*/
 public class CourseDTO {
     private Integer id;
 

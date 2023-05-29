@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+     DTO used for get credentials for the fronted
+*/
 public class LoginDTO {
     private String email;
 

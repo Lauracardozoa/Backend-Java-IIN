@@ -1,5 +1,8 @@
 package com.evaluation.backend.dto;
 
+/*
+    Response with message, id and email when the login is successful or a failure message otherwise
+*/
 public class LoginResponseDTO extends ResponseDTO{
 
     private Integer id;

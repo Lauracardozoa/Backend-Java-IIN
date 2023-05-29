@@ -19,6 +19,9 @@ public class CourseController {
         this.courseService = courseService;
     }
 
+    /*
+    Get all courses in the database
+     */
     @GetMapping("/")
     List<CourseDTO> getAllCourses(){
         return courseService.getAllCourses();

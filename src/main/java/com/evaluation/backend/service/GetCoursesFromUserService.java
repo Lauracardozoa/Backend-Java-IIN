@@ -23,6 +23,9 @@ public class GetCoursesFromUserService {
         this.userRepository = userRepository;
     }
 
+    /*
+     Get all courses from a user and convert them into CourseDTO
+    */
     public List<CourseDTO> getCoursesFromUser(Integer userId) {
         List<CourseDTO> courseList = new ArrayList<>();
         Optional<User> optionalUser= userRepository.findById(userId);
